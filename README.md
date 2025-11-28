@@ -602,7 +602,7 @@ If you find this project helpful, please give it a ⭐️ on GitHub!
 
 <div align="center">
 
-**Made with ❤️ for College Mini Project 2025**
+**Made with ❤️ by Abhay for College Mini Project 2025**
 
 ![MERN Stack](https://img.shields.io/badge/MERN-Stack-success)
 ![Supabase](https://img.shields.io/badge/Powered%20by-Supabase-orange)
