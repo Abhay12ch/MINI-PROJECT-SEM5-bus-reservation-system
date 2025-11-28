@@ -1,0 +1,177 @@
+# ============================================
+# Bus Reservation System - Global .gitignore
+# ============================================
+
+# Environment Variables (CRITICAL - NEVER COMMIT)
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+*.env
+backend/.env
+frontend/.env
+
+# Dependencies
+node_modules/
+*/node_modules/
+backend/node_modules/
+frontend/node_modules/
+
+# Package Manager Files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Production Build Files
+build/
+dist/
+*/build/
+*/dist/
+frontend/build/
+backend/dist/
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Log Files
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Testing Coverage
+coverage/
+.nyc_output/
+*.lcov
+
+# Temporary Files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Database Files (if using local DB)
+*.db
+*.sqlite
+*.sqlite3
+
+# Sensitive Configuration Files
+config/secrets.js
+config/credentials.json
+secrets.json
+
+# Backup Files
+*.bak
+*.backup
+*.old
+
+# Compiled Files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Archives
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Certificate Files (CRITICAL)
+*.pem
+*.key
+*.cert
+*.crt
+*.p12
+
+# Cloud Provider Credentials
+.aws/
+.azure/
+gcloud/
+
+# Miscellaneous
+.cache/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Diagnostic reports
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Runtime data
+*.pid.lock
+
+# Serverless directories
+.serverless/
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# TernJS port file
+.tern-port
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# yarn v2
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# Backup Files (contain sensitive data)
+*.env.backup
+backend/.env.backup
+
+
+# Credentials Backup (NEVER COMMIT)
+CREDENTIALS_BACKUP.md
+MY_CREDENTIALS.md
+*.credentials.md
+
+
+# Local Instructions (contains credential info)
+READ_ME_FIRST.md
+
