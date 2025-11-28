@@ -15,18 +15,6 @@ A professional, full-featured bus reservation system built with the MERN stack a
 
 ---
 
-## ⚠️ SECURITY WARNING
-
-> **IMPORTANT:** This repository contains example code for educational purposes. Before deploying to production:
-> - ✅ Replace all placeholder credentials with your own
-> - ✅ Never commit `.env` files or sensitive data to version control
-> - ✅ Use environment variables for all secrets
-> - ✅ Enable proper authentication and authorization
-> - ✅ Implement rate limiting and input validation
-> - ✅ Use HTTPS in production
-> - ✅ Review and update all security configurations
-> 
-> 📋 **Before publishing to GitHub:** Review [PRE_PUBLISH_CHECKLIST.md](PRE_PUBLISH_CHECKLIST.md)
 
 ---
 
