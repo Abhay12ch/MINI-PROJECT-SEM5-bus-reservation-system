@@ -498,7 +498,7 @@ bus-reservation-system/
 
 - [ ] Payment Gateway Integration (Razorpay/Stripe)
 - [ ] Email/SMS Notifications (Twilio, SendGrid)
-- [ ] User Reviews & Ratings System
+- [ ] User Reviews & Ratings System //done
 - [ ] Bus Operator Dashboard
 - [ ] Ticket PDF Download (jsPDF)
 - [ ] Multi-language Support (i18n)
