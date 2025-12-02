@@ -1,6 +1,7 @@
 const Booking = require('../models/BookingSupabase');
 const Bus = require('../models/BusSupabase');
 const { normalizeDate, isValidDate, isDatePast } = require('../utils/dateUtils');
+const { sendNotification } = require('../config/notification');
 
 // @desc    Create new booking
 // @route   POST /api/bookings
@@ -68,6 +69,31 @@ exports.createBooking = async (req, res) => {
     await Bus.update(bus, {
       available_seats: busData.available_seats - seatNumbers.length
     });
+
+    // Send booking confirmation notification
+    try {
+      await sendNotification(
+        req.user.email,
+        passengerPhone,
+        'bookingConfirmation',
+        {
+          bookingId: booking.id.substring(0, 8).toUpperCase(),
+          busName: busData.bus_name,
+          busNumber: busData.bus_number,
+          from: busData.from_location,
+          to: busData.to_location,
+          departureTime: busData.departure_time,
+          arrivalTime: busData.arrival_time,
+          journeyDate: normalizedDate,
+          seatNumbers: seatNumbers.join(', '),
+          totalFare: totalFare,
+          passengerName: passengerName
+        }
+      );
+    } catch (notifError) {
+      console.error('Notification error:', notifError);
+      // Don't fail booking if notification fails
+    }
 
     res.status(201).json({
       success: true,
@@ -168,6 +194,25 @@ exports.cancelBooking = async (req, res) => {
     await Bus.update(booking.bus_id, {
       available_seats: bus.available_seats + booking.seat_numbers.length
     });
+
+    // Send cancellation notification
+    try {
+      await sendNotification(
+        req.user.email,
+        booking.passenger_phone,
+        'bookingCancellation',
+        {
+          bookingId: booking.id.substring(0, 8).toUpperCase(),
+          busName: booking.bus.bus_name || bus.bus_name,
+          journeyDate: booking.journey_date,
+          totalFare: booking.total_fare,
+          refundAmount: booking.total_fare,
+          passengerName: booking.passenger_name
+        }
+      );
+    } catch (notifError) {
+      console.error('Notification error:', notifError);
+    }
 
     res.status(200).json({
       success: true,

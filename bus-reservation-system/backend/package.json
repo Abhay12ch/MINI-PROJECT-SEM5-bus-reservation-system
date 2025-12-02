@@ -15,6 +15,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@sendgrid/mail": "^8.1.6",
     "@supabase/supabase-js": "^2.80.0",
     "axios": "^1.13.2",
     "bcryptjs": "^2.4.3",
@@ -24,7 +25,8 @@
     "express-validator": "^7.0.1",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.0.0",
-    "pg": "^8.16.3"
+    "pg": "^8.16.3",
+    "twilio": "^5.10.6"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"

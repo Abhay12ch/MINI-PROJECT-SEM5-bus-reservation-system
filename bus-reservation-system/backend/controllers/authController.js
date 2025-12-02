@@ -1,5 +1,6 @@
 const User = require('../models/UserSupabase');
 const jwt = require('jsonwebtoken');
+const { sendNotification } = require('../config/notification');
 
 // Generate JWT Token
 const generateToken = (id) => {
@@ -144,11 +145,25 @@ exports.forgotPassword = async (req, res) => {
     await User.updateResetCode(user.id, resetCode, resetCodeExpiry);
 
     console.log(`🔐 Password reset code for ${email}: ${resetCode}`);
-    // In production, send this via email instead of logging
+    
+    // Send password reset notification
+    try {
+      await sendNotification(
+        email,
+        user.phone,
+        'passwordReset',
+        {
+          userName: user.name,
+          resetCode: resetCode
+        }
+      );
+    } catch (notifError) {
+      console.error('Notification error:', notifError);
+    }
     
     res.status(200).json({
       success: true,
-      message: 'Password reset code has been generated.',
+      message: 'Password reset code has been sent to your email and phone.',
       resetCode: resetCode // Remove this in production, send via email instead
     });
   } catch (error) {
