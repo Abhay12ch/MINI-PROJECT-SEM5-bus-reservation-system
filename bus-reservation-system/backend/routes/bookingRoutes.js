@@ -18,6 +18,10 @@ router.route('/')
 router.get('/my-bookings', protect, getMyBookings);
 router.get('/booked-seats/:busId', getBookedSeats);
 
+// Public route for QR code ticket download
+router.get('/:id', getBooking);
+
+// Protected routes
 router.route('/:id')
   .get(protect, getBooking);
 
